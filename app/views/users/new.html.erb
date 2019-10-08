@@ -1,7 +1,3 @@
-<% if @user %>
-  <% @user.errors.full_messages.each %>
-<% end %>
-
 <% flash.each do |_, message| %>
   <%= message %>
 <% end %>

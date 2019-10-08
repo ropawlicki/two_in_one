@@ -5,10 +5,7 @@ class UsersController < ApplicationController
 
   def create
     @user = CreateUser.new(registration_params).call
-    valid = @user.valid? && @user.address.valid?
-    if valid
-      @user.save!
-      @user.address.save!
+    if @user.save! && @user.address.save!
       flash[:success] = "User added"
     else
       flash[:warning] = @user.errors.full_messages + @user.address.errors.full_messages
