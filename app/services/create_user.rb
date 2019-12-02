@@ -8,12 +8,10 @@ class CreateUser
     end
 
     def call
-      User.transaction do
-        user = User.new(@user_params)
-        user.address = Address.new(@address_params)
-        user.valid?
-        user.address.valid?
-        user
-      end
+      user = User.new(@user_params)
+      user.address = Address.new(@address_params)
+      user.valid?
+      user.address.valid?
+      user
     end   
 end
